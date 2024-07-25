@@ -9,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter_application_1/sharedCode/Recipe_Model.dart';
 import 'RecipeDetailsPage.dart';
-
+//this is a page for showing your saved recipes//
 class SavedRecipes extends StatefulWidget {
   @override
   _SavedRecipesState createState() => _SavedRecipesState();
@@ -66,19 +66,24 @@ class _SavedRecipesState extends State<SavedRecipes> {
       });
       switch (index) {
         case 0:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CookUpCommunity()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => CookUpCommunity()));
           break;
         case 1:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => KitchenManagementPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => KitchenManagementPage()));
           break;
         case 2:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
           break;
         case 3:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SavedRecipes()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SavedRecipes()));
           break;
         case 4:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Userprofilepage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Userprofilepage()));
           break;
       }
     }
@@ -145,7 +150,8 @@ class RecipeCard extends StatefulWidget {
   final VoidCallback onRemove;
   final VoidCallback onTap;
 
-  RecipeCard({required this.recipe, required this.onRemove, required this.onTap});
+  RecipeCard(
+      {required this.recipe, required this.onRemove, required this.onTap});
 
   @override
   _RecipeCardState createState() => _RecipeCardState();
@@ -160,7 +166,8 @@ class _RecipeCardState extends State<RecipeCard> {
       builder: (context) {
         return AlertDialog(
           title: Text('Remove Recipe'),
-          content: Text('Are you sure you want to remove this recipe from your saved recipes?'),
+          content: Text(
+              'Are you sure you want to remove this recipe from your saved recipes?'),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
@@ -241,9 +248,12 @@ class _RecipeCardState extends State<RecipeCard> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(widget.recipe.source, style: TextStyle(color: Colors.grey)),
+              child: Text(widget.recipe.source,
+                  style: TextStyle(color: Colors.grey)),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
@@ -251,16 +261,26 @@ class _RecipeCardState extends State<RecipeCard> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.access_time, size: 16.0, color: Colors.grey,),
+                      Icon(
+                        Icons.access_time,
+                        size: 16.0,
+                        color: Colors.grey,
+                      ),
                       SizedBox(width: 1.5),
-                      Text('${widget.recipe.cookingTime}', style: TextStyle(color: Colors.grey),),
+                      Text(
+                        '${widget.recipe.cookingTime}',
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.yellow, size: 16.0),
                       SizedBox(width: 1.5),
-                      Text('${widget.recipe.rating}', style: TextStyle(color: Colors.grey),),
+                      Text(
+                        '${widget.recipe.rating}',
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
                 ],
@@ -272,4 +292,3 @@ class _RecipeCardState extends State<RecipeCard> {
     );
   }
 }
-
